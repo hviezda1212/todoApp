@@ -1,5 +1,4 @@
 const Task = require('../model/Task');
-
 const taskController = {};
 
 taskController.createTask = async (req, res) => {
@@ -36,6 +35,7 @@ taskController.updateTask = async (req, res) => {
     res.status(400).json({ status: 'fail', error });
   }
 };
+
 taskController.deleteTask = async (req, res) => {
   try {
     const deleteItem = await Task.findByIdAndDelete(req.params.id);
@@ -44,4 +44,5 @@ taskController.deleteTask = async (req, res) => {
     res.status(400).json({ status: 'fail', error });
   }
 };
+
 module.exports = taskController;
